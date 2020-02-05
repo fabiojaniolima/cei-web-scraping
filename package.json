@@ -5,5 +5,11 @@
   "main": "src/index.js",
   "repository": "https://github.com/fabiojaniolima/cei-web-scraping.git",
   "author": "fabiojaniolima <fabiojaniolima@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  }
 }
