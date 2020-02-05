@@ -1,0 +1,9 @@
+{
+  "name": "cei-web-scraping",
+  "version": "1.0.0",
+  "description": "Este código representa uma demonstração prática de raspagem de dados do Portal CEI.",
+  "main": "src/index.js",
+  "repository": "https://github.com/fabiojaniolima/cei-web-scraping.git",
+  "author": "fabiojaniolima <fabiojaniolima@gmail.com>",
+  "license": "MIT"
+}
