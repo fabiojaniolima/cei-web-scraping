@@ -48,7 +48,7 @@ const main = async () => {
     page.click('#ctl00_ContentPlaceHolder1_btnConsultar'),
   ])
 
-  await page.waitFor(1000)
+  await page.waitForTimeout(1000)
 
   const result = await page.evaluate(() => {
     const columnsTitle = []
