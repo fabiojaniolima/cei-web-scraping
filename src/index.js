@@ -1,12 +1,24 @@
 require('dotenv/config')
-const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer-extra')
+const RecaptchaPlugin = require('puppeteer-extra-plugin-recaptcha')
 
 const {
   CEI_USERNAME,
   CEI_PASSWORD,
   CEI_MAIN_URL,
   BACKGROUND_NAVIGATION,
+  CAPTCHA_TOKEN,
 } = process.env
+
+puppeteer.use(
+  RecaptchaPlugin({
+    provider: {
+      id: '2captcha',
+      token: CAPTCHA_TOKEN,
+    },
+    visualFeedback: true, // colorize reCAPTCHAs (violet = detected, green = solved)
+  })
+)
 
 const main = async () => {
   const browser = await puppeteer.launch({ headless: BACKGROUND_NAVIGATION })
@@ -19,6 +31,8 @@ const main = async () => {
 
   await page.type('#ctl00_ContentPlaceHolder1_txtLogin', CEI_USERNAME)
   await page.type('#ctl00_ContentPlaceHolder1_txtSenha', CEI_PASSWORD)
+
+  await page.solveRecaptchas()
 
   await Promise.all([
     page.waitForNavigation(),
